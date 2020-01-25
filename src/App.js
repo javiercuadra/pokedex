@@ -1,9 +1,12 @@
 import React from 'react';
+import { Search } from './components/layout/Search';
+import { Body } from './components/layout/Body';
 
 export const App = () => {
 	return (
 		<div className='App'>
-			<p>Hello World!</p>
+			<Search />
+			<Body />
 		</div>
 	);
 };
