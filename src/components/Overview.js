@@ -5,21 +5,19 @@ export const Overview = ({ pokemonInfo }) => {
 	return (
 		<div className='overview'>
 			<img src={pokemonSprite} alt={pokemonInfo.name} />
+			<span>#{pokemonInfo.id}</span>
 			{createTypes(pokemonInfo)}
-			<p>#{pokemonInfo.id}</p>
-			<p></p>
-			<p></p>
 		</div>
 	);
 };
 
 const createTypes = pokemonInfo => {
 	return (
-		<>
+		<div className='types'>
 			{pokemonInfo.types.map(t => (
 				<div key={t.type.name}>{capitalize(t.type.name)}</div>
 			))}
-		</>
+		</div>
 	);
 };
 

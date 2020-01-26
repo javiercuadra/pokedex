@@ -3,10 +3,9 @@ import { Header } from '../Header';
 import { Overview } from '../Overview';
 import { Section } from '../Section';
 
-export const Body = ({ pokemon }) => {
-	console.log(pokemon.name);
+export const Content = ({ pokemon }) => {
 	return (
-		<div className='body'>
+		<div className='content'>
 			<Header titleName={pokemon.name} />
 			<Overview pokemonInfo={pokemon} />
 			<Section pokemonInfo={pokemon} />

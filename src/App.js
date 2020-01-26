@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Search } from './components/layout/Search';
-import { Body } from './components/layout/Body';
+import { Content } from './components/layout/Content';
 import axios from 'axios';
 
 export const App = () => {
@@ -29,7 +29,7 @@ export const App = () => {
 	return (
 		<div className='App'>
 			<Search search={search} setSearch={setSearch} />
-			<Body pokemon={pokemon} />
+			<Content pokemon={pokemon} />
 		</div>
 	);
 };

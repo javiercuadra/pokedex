@@ -1,0 +1,74 @@
+*,
+:after,
+:before {
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.App,
+.content,
+.profile {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	width: 100%;
+}
+
+.header {
+	background: rgb(76, 140, 44);
+	max-width: 600px;
+	margin: 0;
+	/* color: #fff; */
+	text-align: center;
+	width: 100%;
+	padding: 15px 0;
+	font-size: 24px;
+	border: 1px black;
+}
+
+.search {
+	padding: 1em;
+	align-items: center;
+	justify-content: center;
+	display: flex;
+	flex-direction: row;
+	border: 1px;
+	width: 100%;
+}
+
+.search input,
+.search button {
+	padding: 1em;
+	font-size: em;
+	margin: 0;
+}
+
+.search input {
+}
+
+.profile ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	column-count: 2;
+}
+
+.abilities {
+	column-span: all;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.abilities span {
+	font-weight: bold;
+	font-size: 20px;
+	text-decoration: underline;
+}

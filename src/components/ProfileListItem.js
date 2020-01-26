@@ -5,22 +5,23 @@ export const ProfileListItem = ({ pokemonInfo, title }) => {
 	if (filterID === 'height') {
 		return (
 			<li>
-				<span className='height'>{title}</span>
-				<span> - {pokemonInfo.height * 10} meters</span>
+				<span className='height'>
+					{title} - {pokemonInfo.height / 10} meters
+				</span>
 			</li>
 		);
 	} else if (filterID === 'weight') {
 		return (
 			<li>
-				<span className='weight'>{title}</span>
-				<span> - {pokemonInfo.weight / 10} kg</span>
+				<span className='weight'>
+					{title} - {pokemonInfo.weight / 10} kg
+				</span>
 			</li>
 		);
 	} else if (filterID === 'abilities') {
 		return (
-			<li>
-				<span className='weight'>{title}</span>
-				<span> - </span>
+			<li className='abilities'>
+				<span>{title}</span>
 				{getAbilities(pokemonInfo)}
 			</li>
 		);
@@ -31,7 +32,9 @@ const getAbilities = pokemonInfo => {
 	return (
 		<>
 			{pokemonInfo.abilities.map(a => (
-				<div key={a.ability.name}>{capitalize(a.ability.name)}</div>
+				<div className='ability' key={a.ability.name}>
+					{capitalize(a.ability.name)}
+				</div>
 			))}
 		</>
 	);
