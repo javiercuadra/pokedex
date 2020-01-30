@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Search } from './components/layout/Search';
 import { Content } from './components/layout/Content';
+import { Title } from './components/layout/Title';
 import axios from 'axios';
 
 export const App = () => {
@@ -27,7 +28,8 @@ export const App = () => {
 	if (loading) return 'Loading...';
 
 	return (
-		<div className='App'>
+		<div className='App wrapper-column'>
+			<Title />
 			<Search search={search} setSearch={setSearch} />
 			<Content pokemon={pokemon} />
 		</div>

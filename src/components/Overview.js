@@ -5,22 +5,21 @@ export const Overview = ({ pokemonInfo }) => {
 	return (
 		<div className='overview'>
 			<img src={pokemonSprite} alt={pokemonInfo.name} />
-			<span>#{pokemonInfo.id}</span>
+			<span className='pokemon-number'>#{pokemonInfo.id}</span>
 			{createTypes(pokemonInfo)}
 		</div>
 	);
 };
 
 const createTypes = pokemonInfo => {
+	const pokeTypes = pokemonInfo.types;
 	return (
-		<div className='types'>
-			{pokemonInfo.types.map(t => (
-				<div key={t.type.name}>{capitalize(t.type.name)}</div>
+		<div className='types wrapper-row'>
+			{pokeTypes.map(t => (
+				<div className='type' id={t.type.name} key={t.type.name}>
+					{t.type.name}
+				</div>
 			))}
 		</div>
 	);
-};
-
-const capitalize = str => {
-	return str.charAt(0).toUpperCase() + str.slice(1);
 };

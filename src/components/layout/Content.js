@@ -6,7 +6,7 @@ import { Section } from '../Section';
 export const Content = ({ pokemon }) => {
 	return (
 		<div className='content'>
-			<Header titleName={pokemon.name} />
+			<Header pokemonInfo={pokemon} />
 			<Overview pokemonInfo={pokemon} />
 			<Section pokemonInfo={pokemon} />
 		</div>

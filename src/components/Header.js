@@ -1,6 +1,12 @@
 import React from 'react';
 
-export const Header = ({ titleName }) => {
-	const title = String(titleName).toUpperCase();
-	return <p className='header'>{title}</p>;
+export const Header = ({ pokemonInfo }) => {
+	const pokeTypes = pokemonInfo.types;
+	pokeTypes.reverse();
+	const pokeType = pokeTypes[0].type.name;
+	return (
+		<h2 className='header' id={pokeType}>
+			{pokemonInfo.name}
+		</h2>
+	);
 };

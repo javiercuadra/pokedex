@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { GoSearch } from 'react-icons/go';
 
-export const Search = ({ search, setSearch }) => {
+export const Search = ({ setSearch }) => {
 	const [currentText, setCurrentText] = useState('');
 
 	const handleSubmit = event => {
@@ -16,13 +16,14 @@ export const Search = ({ search, setSearch }) => {
 	let input = React.createRef();
 
 	return (
-		<div className='search'>
+		<div className='search wrapper-row'>
 			<form onSubmit={handleSubmit}>
 				<input
 					onChange={handleChange}
 					type='text'
 					placeholder='Search Pokemon'
 					ref={input}
+					size={50}
 				/>
 				<button type='submit'>
 					<GoSearch />

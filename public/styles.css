@@ -1,74 +1,317 @@
+@import url(//db.onlinewebfonts.com/c/f4d1593471d222ddebd973210265762a?family=Pokemon);
+
+@font-face {
+	font-family: 'Pokemon';
+	src: url('//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.eot');
+	src: url('//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.eot?#iefix')
+			format('embedded-opentype'),
+		url('//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.woff2')
+			format('woff2'),
+		url('//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.woff')
+			format('woff'),
+		url('//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.ttf')
+			format('truetype'),
+		url('//db.onlinewebfonts.com/t/f4d1593471d222ddebd973210265762a.svg#Pokemon')
+			format('svg');
+}
+
+/* =============================
+    Color definitions
+============================= */
+
+:root {
+	--normal: #a8a77a;
+	--fire: #ee8130;
+	--water: #6390f0;
+	--electric: #f7d02c;
+	--grass: #7ac74c;
+	--ice: #96d9d6;
+	--fighting: #c22e28;
+	--poison: #a33ea1;
+	--ground: #e2bf65;
+	--flying: #a98ff3;
+	--psychic: #f95587;
+	--bug: #a6b91a;
+	--rock: #b6a136;
+	--ghost: #735797;
+	--dragon: #6f35fc;
+	--dark: #705746;
+	--steel: #b7b7ce;
+	--fairy: #d685ad;
+	--poke-yellow: #ffcb05;
+	--poke-blue: #3d7dca;
+	--poke-navy: #003a70;
+}
+
+/* =============================
+    Universal Selector
+============================= */
+
 *,
 :after,
 :before {
 	box-sizing: border-box;
 }
 
-html,
+html {
+	height: 100vh;
+}
 body {
-	margin: 0;
-	padding: 0;
+	background: linear-gradient(
+			var(--poke-yellow),
+			var(--poke-blue),
+			var(--poke-navy)
+		)
+		no-repeat;
+	background-size: cover;
 }
 
-.App,
-.content,
-.profile {
-	align-items: center;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	width: 100%;
+#root {
+	background-color: beige;
+	padding: 10%;
+	padding-top: 2%;
+	max-width: 80%;
+	height: 100%;
+	margin: 5% auto;
+	border-radius: 5%;
 }
 
-.header {
-	background: rgb(76, 140, 44);
-	max-width: 600px;
-	margin: 0;
-	/* color: #fff; */
+/* =============================
+    Title Styles
+============================= */
+
+.title {
 	text-align: center;
-	width: 100%;
-	padding: 15px 0;
-	font-size: 24px;
-	border: 1px black;
+	font-size: 0.5rem;
+	font-family: 'Pokemon';
+	color: var(--poke-yellow);
+	-webkit-text-stroke-width: 2px;
+	-webkit-text-stroke-color: var(--poke-blue);
+	letter-spacing: 0.25rem;
+	line-height: 1.5;
+}
+/* =============================
+    Wrapper Styles
+============================= */
+.App.wrapper-column {
+	margin: 0 auto;
 }
 
-.search {
-	padding: 1em;
-	align-items: center;
-	justify-content: center;
+.wrapper-row,
+.wrapper-column {
 	display: flex;
-	flex-direction: row;
-	border: 1px;
-	width: 100%;
+	justify-content: center;
+	align-items: stretch;
 }
 
-.search input,
-.search button {
-	padding: 1em;
-	font-size: em;
+.wrapper-column {
+	flex-direction: column;
+}
+/* =============================
+    Text Styles
+============================= */
+
+h2,
+h3 {
+	text-align: center;
+	background-color: rgba(51, 141, 51, 0.836);
 	margin: 0;
+	text-transform: uppercase;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+h2 {
+	padding: 1rem;
+	font-size: 1.25rem;
+}
+
+h3 {
+	padding: 0.5rem;
+}
+
+/* =============================
+    Search Styles
+============================= */
+form {
+	display: flex;
+	margin: 5% 0;
 }
 
 .search input {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	box-sizing: border-box;
+	resize: vertical;
+	font-size: 0.1rem;
 }
 
-.profile ul {
-	list-style-type: none;
-	padding: 0;
-	margin: 0;
-	column-count: 2;
+.search button {
+	padding: 12px 20px;
+	border-radius: 4px;
+	cursor: pointer;
+	float: right;
 }
 
-.abilities {
-	column-span: all;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
+/* =============================
+    Overview Styles
+============================= */
+
+.overview {
+	align-content: center;
+	position: relative;
+	margin-bottom: 5%;
 }
 
-.abilities span {
-	font-weight: bold;
-	font-size: 20px;
-	text-decoration: underline;
+.pokemon-number {
+	font-size: 1.5rem;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	width: 50%;
+	max-width: 35%;
+}
+
+/* =============================
+    Pokemon Type Styles
+============================= */
+
+.type {
+	text-transform: capitalize;
+	padding: 0.25rem;
+	width: 100%;
+	text-align: center;
+	border: 1px solid black;
+	border-radius: 5px;
+}
+
+#normal {
+	background-color: var(--normal);
+}
+
+#fire {
+	background-color: var(--fire);
+}
+
+#water {
+	background-color: var(--water);
+}
+
+#electric {
+	background-color: var(--electric);
+}
+
+#grass {
+	background-color: var(--grass);
+}
+
+#ice {
+	background-color: var(--ice);
+}
+
+#fighting {
+	background-color: var(--fighting);
+	color: rgb(250, 250, 250);
+}
+
+#poison {
+	background-color: var(--poison);
+	color: rgb(250, 250, 250);
+}
+
+#ground {
+	background-color: var(--ground);
+}
+
+#flying {
+	background-color: var(--flying);
+}
+
+#psychic {
+	background-color: var(--psychic);
+}
+
+#bug {
+	background-color: var(--bug);
+}
+
+#rock {
+	background-color: var(--rock);
+}
+
+#ghost {
+	background-color: var(--ghost);
+	color: rgb(250, 250, 250);
+}
+
+#dragon {
+	background-color: var(--dragon);
+	color: rgb(250, 250, 250);
+}
+
+#dark {
+	background-color: var(--dark);
+	color: rgb(250, 250, 250);
+}
+
+#steel {
+	background-color: var(--steel);
+}
+
+#fairy {
+	background-color: var(--fairy);
+}
+
+/* =============================
+    Pokemon Type Styles
+============================= */
+
+@media (min-width: 275px) {
+	.search input {
+		font-size: 0.75rem;
+	}
+}
+
+@media (min-width: 309px) {
+	.search input {
+		font-size: 1rem;
+	}
+	h2 {
+		font-size: 1.5rem;
+	}
+	.pokemon-number {
+		font-size: 2rem;
+	}
+}
+
+@media (min-width: 376px) {
+	h2 {
+		font-size: 2rem;
+	}
+	.title {
+		font-size: 1rem;
+	}
+}
+
+@media (min-width: 666px) {
+	h2 {
+		font-size: 2.5rem;
+	}
+	.title {
+		font-size: 1.5rem;
+	}
+}
+
+@media (min-width: 856px) {
+	.title {
+		font-size: 2rem;
+	}
 }
