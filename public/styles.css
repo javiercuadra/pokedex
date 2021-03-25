@@ -55,25 +55,28 @@
 
 html {
 	height: 100vh;
-}
-body {
 	background: linear-gradient(
 			var(--poke-yellow),
 			var(--poke-blue),
 			var(--poke-navy)
 		)
-		no-repeat;
+		no-repeat center center fixed;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
 	background-size: cover;
 }
 
 #root {
-	background-color: beige;
+	background-color: #fceaea;
 	padding: 10%;
 	padding-top: 2%;
 	max-width: 80%;
 	height: 100%;
 	margin: 5% auto;
-	border-radius: 5%;
+	border-radius: 10%;
+	border: #000000 solid 2px;
+	font-family: 'Poppins', sans-serif;
 }
 
 /* =============================
@@ -83,7 +86,7 @@ body {
 .title {
 	text-align: center;
 	font-size: 0.5rem;
-	font-family: 'Pokemon';
+	font-family: 'Pokemon', sans-serif;
 	color: var(--poke-yellow);
 	-webkit-text-stroke-width: 2px;
 	-webkit-text-stroke-color: var(--poke-blue);
@@ -114,10 +117,10 @@ body {
 h2,
 h3 {
 	text-align: center;
-	background-color: rgba(51, 141, 51, 0.836);
+	background-color: #338d33d5;
 	margin: 0;
 	text-transform: uppercase;
-	border: 1px solid black;
+	border: 1px solid #000000;
 	border-radius: 5px;
 }
 
@@ -146,6 +149,7 @@ form {
 	box-sizing: border-box;
 	resize: vertical;
 	font-size: 0.1rem;
+	resize: vertical;
 }
 
 .search button {
@@ -172,7 +176,7 @@ form {
 	right: 0;
 }
 
-img {
+.overview img {
 	display: block;
 	margin-left: auto;
 	margin-right: auto;
@@ -189,89 +193,89 @@ img {
 	padding: 0.25rem;
 	width: 100%;
 	text-align: center;
-	border: 1px solid black;
+	border: 1px solid #000000;
 	border-radius: 5px;
 }
 
-#normal {
+.normal {
 	background-color: var(--normal);
 }
 
-#fire {
+.fire {
 	background-color: var(--fire);
 }
 
-#water {
+.water {
 	background-color: var(--water);
 }
 
-#electric {
+.electric {
 	background-color: var(--electric);
 }
 
-#grass {
+.grass {
 	background-color: var(--grass);
 }
 
-#ice {
+.ice {
 	background-color: var(--ice);
 }
 
-#fighting {
+.fighting {
 	background-color: var(--fighting);
-	color: rgb(250, 250, 250);
+	color: #fafafa;
 }
 
-#poison {
+.poison {
 	background-color: var(--poison);
-	color: rgb(250, 250, 250);
+	color: #fafafa;
 }
 
-#ground {
+.ground {
 	background-color: var(--ground);
 }
 
-#flying {
+.flying {
 	background-color: var(--flying);
 }
 
-#psychic {
+.psychic {
 	background-color: var(--psychic);
 }
 
-#bug {
+.bug {
 	background-color: var(--bug);
 }
 
-#rock {
+.rock {
 	background-color: var(--rock);
 }
 
-#ghost {
+.ghost {
 	background-color: var(--ghost);
-	color: rgb(250, 250, 250);
+	color: #fafafa;
 }
 
-#dragon {
+.dragon {
 	background-color: var(--dragon);
-	color: rgb(250, 250, 250);
+	color: #fafafa;
 }
 
-#dark {
+.dark {
 	background-color: var(--dark);
-	color: rgb(250, 250, 250);
+	color: #fafafa;
 }
 
-#steel {
+.steel {
 	background-color: var(--steel);
 }
 
-#fairy {
+.fairy {
 	background-color: var(--fairy);
 }
 
 /* =============================
-    Pokemon Type Styles
+    Media Queries
 ============================= */
 
 @media (min-width: 275px) {

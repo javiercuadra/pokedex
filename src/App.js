@@ -8,22 +8,32 @@ export const App = () => {
 	const [search, setSearch] = useState('bulbasaur');
 	const [pokemon, setPokemon] = useState(null);
 	const [loading, setLoading] = useState(true);
+	const [pokeSpecies, setPokeSpecies] = useState(null);
 
-	let currentURL = `https://pokeapi.co/api/v2/pokemon/${search}/`;
+	let pokemonURL = `https://pokeapi.co/api/v2/pokemon/${search}/`;
+	let pokemonSpeciesURL = `https://pokeapi.co/api/v2/pokemon-species/${search}/`;
+
 	useEffect(() => {
+		const requestOne = axios.get(pokemonURL);
+		const requestTwo = axios.get(pokemonSpeciesURL);
 		setLoading(true);
 		axios
-			.get(currentURL)
-			.then(res => {
-				setPokemon(res.data);
-				setLoading(false);
-			})
+			.all([requestOne, requestTwo])
+			.then(
+				axios.spread((...responses) => {
+					const responseOne = responses[0];
+					const responseTwo = responses[1];
+					setPokemon(responseOne.data);
+					setPokeSpecies(responseTwo.data);
+					setLoading(false);
+				})
+			)
 			.catch(err => {
 				setLoading(false);
 				alert('Please input a valid Pokemon name');
 				console.log(err);
 			});
-	}, [search]);
+	}, [pokemonURL, pokemonSpeciesURL]);
 
 	if (loading) return 'Loading...';
 
@@ -31,7 +41,7 @@ export const App = () => {
 		<div className='App wrapper-column'>
 			<Title />
 			<Search search={search} setSearch={setSearch} />
-			<Content pokemon={pokemon} />
+			<Content pokemon={pokemon} pokeSpecies={pokeSpecies} />
 		</div>
 	);
 };

@@ -23,7 +23,7 @@ export const Search = ({ setSearch }) => {
 					type='text'
 					placeholder='Search Pokemon'
 					ref={input}
-					size={50}
+					size={3000}
 				/>
 				<button type='submit'>
 					<GoSearch />
